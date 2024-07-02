@@ -1,10 +1,15 @@
 package org.shiv;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.EnabledOnJre;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.JRE;
+import org.junit.jupiter.api.condition.OS;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("Math Utils Test cases")
+@EnabledOnOs(OS.WINDOWS)
 class MathUtilsTest {
 
     MathUtils mathUtils;
@@ -27,6 +32,7 @@ class MathUtilsTest {
         System.out.println("cleanup util!!");
     }
     @Test
+    @EnabledOnJre(JRE.JAVA_11)
     @DisplayName("Math Utils Add Test Case")
     void testAdd() {
 //        MathUtils mathUtils = new MathUtils();

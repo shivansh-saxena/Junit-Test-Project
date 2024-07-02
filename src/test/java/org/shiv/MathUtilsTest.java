@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("Math Utils Test cases")
 class MathUtilsTest {
 
     MathUtils mathUtils;
@@ -26,6 +27,7 @@ class MathUtilsTest {
         System.out.println("cleanup util!!");
     }
     @Test
+    @DisplayName("Math Utils Add Test Case")
     void testAdd() {
 //        MathUtils mathUtils = new MathUtils();
         int expected = 2;
@@ -35,6 +37,7 @@ class MathUtilsTest {
     }
 
     @Test
+    @Disabled
     void testComputeCircleArea() {
 //        MathUtils mathUtils = new MathUtils();
         assertEquals(Math.PI*10*10,mathUtils.computeCircleArea(10),"this method will return area of circle");

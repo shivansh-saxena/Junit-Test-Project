@@ -3,13 +3,13 @@ package org.shiv;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MathUtilsTest {
 
     MathUtils mathUtils;
 
     @BeforeAll
-    static void beforeAllInit(){
+    void beforeAllInit(){
         System.out.println("Before all -> runs before initialization!!");
     }
     @AfterAll

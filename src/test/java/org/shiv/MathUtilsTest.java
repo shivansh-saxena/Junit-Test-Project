@@ -43,6 +43,30 @@ class MathUtilsTest {
         assertEquals(expected,actual,"this is the message which will be returned(returned in case of failure)!!");
     }
 
+    @Nested
+    @DisplayName("All Test for Add")
+    class AddTest{
+        @Test
+        @DisplayName("Math Utils Add Test Positive Case")
+        void testAddPositive() {
+//        MathUtils mathUtils = new MathUtils();
+            int expected = 2;
+            int actual = mathUtils.add(1,1);
+
+            assertEquals(expected,actual,"this is the message which will be returned(returned in case of failure)!!");
+        }
+        @Test
+        @DisplayName("Math Utils Add Test Negative Case")
+        void testAddNegative() {
+//        MathUtils mathUtils = new MathUtils();
+            int expected = 2;
+            int actual = mathUtils.add(-2,4);
+
+            assertEquals(expected,actual,"this is the message which will be returned(returned in case of failure)!!");
+        }
+    }
+
+
     @Test
     @Disabled
     void testComputeCircleArea() {
@@ -81,7 +105,7 @@ class MathUtilsTest {
     @Test
     void divide() {
 //        MathUtils mathUtils = new MathUtils();
-        int expected = 1;
+//        int expected = 1;
 //        int actual = mathUtils.divide(1,1);
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1,0),"divide by 0 should throw the exception");
     }

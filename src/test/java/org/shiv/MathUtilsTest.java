@@ -62,7 +62,8 @@ class MathUtilsTest {
             int expected = 2;
             int actual = mathUtils.add(-2,4);
 
-            assertEquals(expected,actual,"this is the message which will be returned(returned in case of failure)!!");
+            assertEquals(expected,actual,()->"should return "+expected+" but returned "+actual);
+
         }
     }
 

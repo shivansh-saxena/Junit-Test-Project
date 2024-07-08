@@ -53,7 +53,7 @@ class MathUtilsTest {
     @Test
     void subtract() {
 //        MathUtils mathUtils = new MathUtils();
-        boolean isServerIsUp = false;
+        boolean isServerIsUp = true;
         assumeTrue(isServerIsUp);
         int expected = 2;
         int actual = mathUtils.subtract(3,1);
@@ -63,11 +63,19 @@ class MathUtilsTest {
     }
 
     @Test
+    @DisplayName("Test for multiply")
     void multiply() {
 //        MathUtils mathUtils = new MathUtils();
-        int expected = 2;
-        int actual = mathUtils.multiply(1,2);
-        assertEquals(expected,actual,"this is the message which will be returned(returned in case of failure)!!");
+//        int expected = 2;
+//        int actual = mathUtils.multiply(1,2);
+//        assertEquals(expected,actual,"this is the message which will be returned(returned in case of failure)!!");
+//        now instead of assert equals we use assertAll which takes in multiple lambdas
+        assertAll(
+                () -> assertEquals(2,mathUtils.multiply(1,2),"this is the message which will be returned(returned in case of failure)!!"),
+                () -> assertEquals(0,mathUtils.multiply(0,2),"this is the message which will be returned(returned in case of failure)!!"),
+                () -> assertEquals(-2,mathUtils.multiply(-1,2),"this is the message which will be returned(returned in case of failure)!!")
+
+        );
     }
 
     @Test
@@ -77,4 +85,5 @@ class MathUtilsTest {
 //        int actual = mathUtils.divide(1,1);
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1,0),"divide by 0 should throw the exception");
     }
+
 }

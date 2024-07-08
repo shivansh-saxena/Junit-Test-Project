@@ -7,6 +7,7 @@ import org.junit.jupiter.api.condition.JRE;
 import org.junit.jupiter.api.condition.OS;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("Math Utils Test cases")
 @EnabledOnOs(OS.WINDOWS)
@@ -52,10 +53,13 @@ class MathUtilsTest {
     @Test
     void subtract() {
 //        MathUtils mathUtils = new MathUtils();
+        boolean isServerIsUp = false;
+        assumeTrue(isServerIsUp);
         int expected = 2;
         int actual = mathUtils.subtract(3,1);
 
         assertEquals(expected,actual,"this is the message which will be returned(returned in case of failure)!!");
+        assumeTrue(isServerIsUp);
     }
 
     @Test

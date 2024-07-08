@@ -14,6 +14,8 @@ import static org.junit.jupiter.api.Assumptions.*;
 class MathUtilsTest {
 
     MathUtils mathUtils;
+    TestInfo testInfo;
+    TestReporter testReporter;
 
     @BeforeAll
     void beforeAllInit(){
@@ -25,8 +27,11 @@ class MathUtilsTest {
     }
 
     @BeforeEach
-    void init(){
+    void init(TestInfo testInfo, TestReporter testReporter){
         mathUtils = new MathUtils();
+        this.testInfo = testInfo;
+        this.testReporter = testReporter;
+        testReporter.publishEntry("Running "+testInfo.getDisplayName() +" with tags "+testInfo.getTags());
     }
     @AfterEach
     void cleanUp(){
@@ -111,6 +116,8 @@ class MathUtilsTest {
 //        int expected = 1;
 //        int actual = mathUtils.divide(1,1);
         System.out.println(repetitionInfo.getCurrentRepetition());
+        System.out.println("Running "+testInfo.getDisplayName() +" with tags "+testInfo.getTags());
+        testReporter.publishEntry("Running "+testInfo.getDisplayName() +" with tags "+testInfo.getTags());
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1,0),"divide by 0 should throw the exception");
     }
 

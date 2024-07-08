@@ -45,6 +45,7 @@ class MathUtilsTest {
 
     @Nested
     @DisplayName("All Test for Add")
+    @Tag("MathAdd")
     class AddTest{
         @Test
         @DisplayName("Math Utils Add Test Positive Case")
@@ -104,6 +105,7 @@ class MathUtilsTest {
     }
 
     @RepeatedTest(2)
+    @Tag("MathDivide")
     void divide(RepetitionInfo repetitionInfo) {
 //        MathUtils mathUtils = new MathUtils();
 //        int expected = 1;

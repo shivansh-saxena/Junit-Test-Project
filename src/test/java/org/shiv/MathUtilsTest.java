@@ -103,11 +103,12 @@ class MathUtilsTest {
         );
     }
 
-    @Test
-    void divide() {
+    @RepeatedTest(2)
+    void divide(RepetitionInfo repetitionInfo) {
 //        MathUtils mathUtils = new MathUtils();
 //        int expected = 1;
 //        int actual = mathUtils.divide(1,1);
+        System.out.println(repetitionInfo.getCurrentRepetition());
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1,0),"divide by 0 should throw the exception");
     }
 
